@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Home Care — Seu plano e obrigado a bancar tratamento em casa | Dr. Renan Calgarotto</title>
+  <meta name="description" content="O Home Care transfere toda estrutura hospitalar para a sua casa, custeado pelo plano ou pelo Estado. Especialista em Direito da Saude.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="assets/logo/logo-icon-navy.png">
+  <link rel="apple-touch-icon" href="assets/logo/logo-icon-navy.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy-deep:  #060f1e;
+      --navy-dark:  #081A2E;
+      --navy-mid:   #0d2540;
+      --navy-light: #133356;
+      --gold-a:     #DBB57B;
+      --gold-b:     #756142;
+      --gold-c:     #c9a05a;
+      --gold-grad:  linear-gradient(135deg, #DBB57B 20%, #756142 50%, #DBB57B 80%);
+      --white:      #ffffff;
+      --off-white:  #eef1f5;
+      --muted:      #8fa4be;
+      --card-bg:    rgba(13, 37, 64, 0.6);
+      --card-bd:    rgba(219, 181, 123, 0.22);
+      --radius:     18px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--navy-deep);
+      color: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ─── UTILITÁRIOS ─── */
+    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+    .gold { background: var(--gold-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .tag {
+      display: inline-block;
+      font-family: 'Sora', sans-serif;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-a);
+      border: 1px solid rgba(219,181,123,0.3);
+      background: rgba(219,181,123,0.07);
+      padding: 5px 16px; border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(1.65rem, 4vw, 2.5rem);
+      font-weight: 800; line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 1rem; color: var(--muted);
+      max-width: 580px; line-height: 1.75;
+    }
+
+    .gold-bar {
+      width: 52px; height: 3px;
+      background: var(--gold-grad);
+      border-radius: 4px;
+      margin: 20px 0 0;
+    }
+    .center { text-align: center; }
+    .center .section-sub { margin: 0 auto; }
+    .center .gold-bar { margin: 20px auto 0; }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 14px 0;
+      background: rgba(6,15,30,0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(219,181,123,0.1);
+    }
+    header .container { display: flex; align-items: center; justify-content: space-between; }
+
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none; color: var(--white);
+    }
+    .logo-icon, .logo-icon-img {
+      width: 42px; height: 42px;
+      border-radius: 8px;
+      flex-shrink: 0;
+      display: block;
+      object-fit: contain;
+    }
+    .logo-icon-img { background: transparent; }
+    .logo-text {
+      font-family: 'Roboto Slab', serif;
+      font-size: 0.95rem; font-weight: 700; line-height: 1.2;
+    }
+
+    .btn-wp {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: #25D366; color: #fff;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.82rem; font-weight: 700;
+      padding: 10px 22px; border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .btn-wp svg { width: 17px; height: 17px; fill: currentColor; flex-shrink: 0; }
+    .btn-wp:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(37,211,102,0.45); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 100vh; min-height: 100svh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 130px 0 90px;
+      overflow: hidden;
+    }
+
+    .hero-video-wrap {
+      position: absolute; inset: 0; z-index: 0; overflow: hidden;
+    }
+    .hero-video-wrap video {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(6,15,30,0.82) 0%, rgba(8,26,46,0.75) 60%, rgba(6,15,30,0.92) 100%);
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 820px; margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid rgba(219,181,123,0.35);
+      background: rgba(219,181,123,0.08);
+      border-radius: 100px; padding: 7px 20px;
+      font-size: 0.78rem; font-weight: 500; color: var(--gold-a);
+      margin-bottom: 28px; letter-spacing: 0.04em;
+    }
+    .hero-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #25D366;
+      box-shadow: 0 0 8px rgba(37,211,102,0.9);
+      animation: blink 2.2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+
+    #hero h1 {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(2rem, 5.5vw, 3.4rem);
+      font-weight: 800; line-height: 1.18;
+      color: var(--white); margin-bottom: 22px;
+      text-align: center;
+    }
+
+    #hero .sub {
+      font-size: clamp(1rem, 2.5vw, 1.18rem);
+      color: var(--muted);
+      max-width: 640px; margin: 0 auto 42px;
+      line-height: 1.75; font-weight: 300;
+      text-align: center;
+    }
+    #hero .sub strong { color: var(--off-white); font-weight: 500; }
+
+    .btn-hero {
+      display: inline-flex; align-items: center; gap: 13px;
+      background: linear-gradient(135deg, #25D366 0%, #1aa34a 100%);
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.08rem; font-weight: 700;
+      padding: 18px 44px; border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 6px 30px rgba(37,211,102,0.38);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .btn-hero svg { width: 24px; height: 24px; fill: currentColor; flex-shrink: 0; }
+    .btn-hero:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 40px rgba(37,211,102,0.52); }
+
+    .hero-trust {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 10px 28px; margin-top: 44px;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; color: var(--muted);
+    }
+    .trust-item svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .trust-divider { width: 1px; height: 18px; background: rgba(255,255,255,0.1); }
+
+    /* ─── STRIP ─── */
+    #strip {
+      background: var(--navy-light);
+      border-top: 1px solid rgba(219,181,123,0.15);
+      border-bottom: 1px solid rgba(219,181,123,0.15);
+      padding: 18px 0; overflow: hidden;
+    }
+    .strip-inner {
+      display: flex; align-items: center;
+      animation: marquee 28s linear infinite;
+      width: max-content;
+    }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .strip-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 0 36px;
+      font-size: 0.82rem; font-weight: 500;
+      color: var(--gold-a); white-space: nowrap;
+      border-right: 1px solid rgba(219,181,123,0.2);
+    }
+    .strip-item svg { width: 16px; height: 16px; fill: var(--gold-a); flex-shrink: 0; }
+
+    /* ─── SEÇÃO 2 — SOBRE DR. RENAN ─── */
+    #sobre {
+      padding: 96px 0;
+      background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-dark) 100%);
+    }
+    .sobre-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.45fr;
+      gap: 72px; align-items: center;
+    }
+    .photo-col { position: relative; }
+    .photo-box {
+      position: relative; border-radius: 22px; overflow: hidden;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 100%);
+      border: 2px solid rgba(219,181,123,0.22);
+      box-shadow: 0 28px 70px rgba(0,0,0,0.55);
+    }
+    .photo-box img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center; display: block;
+    }
+    .photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 14px; color: var(--muted);
+    }
+    .photo-placeholder svg { width: 64px; height: 64px; opacity: 0.3; }
+    .photo-placeholder p { font-size: 0.82rem; opacity: 0.5; }
+
+    .photo-stat {
+      position: absolute; bottom: -18px; right: -18px;
+      width: 132px; border-radius: 16px;
+      background: rgba(8,26,46,0.9);
+      border: 1px solid rgba(219,181,123,0.3);
+      backdrop-filter: blur(12px);
+      padding: 18px 14px; text-align: center;
+    }
+    .photo-stat .num {
+      font-family: 'Roboto Slab', serif;
+      font-size: 2.1rem; font-weight: 900;
+      background: var(--gold-grad); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text; line-height: 1;
+    }
+    .photo-stat .lbl { font-size: 0.7rem; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+
+    .sobre-text h2 {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      font-weight: 800; line-height: 1.2; margin-bottom: 20px;
+    }
+    .sobre-text .bio {
+      font-size: 0.96rem; color: var(--muted);
+      line-height: 1.85; margin-bottom: 30px;
+    }
+    .sobre-text .bio strong { color: var(--off-white); font-weight: 500; }
+
+    .esp-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 34px; }
+    .esp {
+      background: rgba(19,51,86,0.8);
+      border: 1px solid rgba(219,181,123,0.28);
+      border-radius: 100px; padding: 6px 16px;
+      font-size: 0.78rem; font-weight: 600; color: var(--gold-a);
+    }
+
+    .creds { display: flex; flex-direction: column; gap: 13px; }
+    .cred {
+      display: flex; align-items: center; gap: 11px;
+      font-size: 0.87rem; color: var(--muted);
+    }
+    .cred svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .cred svg path { fill: var(--gold-a); }
+
+    /* ─── SEÇÃO 3 — O QUE É HOME CARE ─── */
+    #oque {
+      padding: 96px 0;
+      background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy-mid) 100%);
+    }
+
+    .homecare-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px; align-items: start;
+    }
+
+    .homecare-explain h3 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.35rem; font-weight: 700;
+      color: var(--white); margin-bottom: 16px; line-height: 1.3;
+    }
+    .homecare-explain p {
+      font-size: 0.95rem; color: var(--muted);
+      line-height: 1.8; margin-bottom: 20px;
+    }
+    .homecare-explain p strong { color: var(--off-white); font-weight: 500; }
+
+    .info-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-bd);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      backdrop-filter: blur(8px);
+      margin-top: 8px;
+    }
+    .info-box p {
+      font-size: 0.85rem; color: var(--muted);
+      line-height: 1.7; font-style: italic;
+      border-left: 3px solid var(--gold-b);
+      padding-left: 16px; margin-bottom: 0;
+    }
+
+    .services-list { display: flex; flex-direction: column; gap: 14px; }
+    .service-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-bd);
+      border-radius: 14px;
+      padding: 18px 20px;
+      backdrop-filter: blur(8px);
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .service-item:hover {
+      transform: translateX(4px);
+      border-color: rgba(219,181,123,0.45);
+    }
+    .s-icon {
+      width: 44px; height: 44px; border-radius: 11px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 100%);
+      border: 1px solid rgba(219,181,123,0.25);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .s-icon svg { width: 22px; height: 22px; }
+    .s-text strong {
+      display: block; font-size: 0.9rem; font-weight: 700;
+      color: var(--white); margin-bottom: 3px;
+    }
+    .s-text span { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+    /* ─── SEÇÃO 4 — QUEM TEM DIREITO ─── */
+    #quem {
+      padding: 96px 0;
+      background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy-dark) 100%);
+      position: relative; overflow: hidden;
+    }
+    #quem::after {
+      content: '';
+      position: absolute; top: -200px; right: -200px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(219,181,123,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px; position: relative; z-index: 1;
+    }
+    .case-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-bd);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      display: flex; gap: 18px; align-items: flex-start;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .case-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(219,181,123,0.5);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.45);
+    }
+    .case-card.featured { border-color: rgba(219,181,123,0.4); background: linear-gradient(135deg, rgba(219,181,123,0.1) 0%, rgba(117,97,66,0.08) 100%); }
+
+    .c-icon {
+      width: 52px; height: 52px; border-radius: 13px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 100%);
+      border: 1px solid rgba(219,181,123,0.28);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .c-icon svg { width: 26px; height: 26px; }
+
+    .c-text h3 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 0.97rem; font-weight: 700;
+      color: var(--white); margin-bottom: 6px; line-height: 1.3;
+    }
+    .case-card.featured .c-text h3 { color: var(--gold-a); }
+    .c-text p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+
+    /* ─── SEÇÃO 5 — DEPOIMENTOS ─── */
+    #depoimentos {
+      padding: 96px 0;
+      background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy-deep) 100%);
+    }
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .test-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-bd);
+      border-radius: var(--radius);
+      padding: 34px 30px;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s;
+    }
+    .test-card:hover { transform: translateY(-4px); }
+    .stars { display: flex; gap: 4px; margin-bottom: 18px; }
+    .stars svg { width: 17px; height: 17px; fill: var(--gold-a); }
+    .test-card blockquote {
+      font-size: 0.93rem; color: var(--off-white);
+      line-height: 1.8; font-style: italic;
+      border-left: 3px solid var(--gold-b);
+      padding-left: 18px; margin-bottom: 26px;
+    }
+    .test-author { display: flex; align-items: center; gap: 14px; }
+    .t-avatar {
+      width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy-mid) 100%);
+      border: 2px solid rgba(219,181,123,0.35);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Roboto Slab', serif;
+      font-size: 1rem; font-weight: 700; color: var(--gold-a);
+    }
+    .t-name { font-weight: 700; font-size: 0.88rem; color: var(--white); }
+    .t-city { font-size: 0.76rem; color: var(--muted); }
+    .t-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 16px;
+      background: rgba(37,211,102,0.08);
+      border: 1px solid rgba(37,211,102,0.22);
+      border-radius: 100px; padding: 4px 13px;
+      font-size: 0.7rem; font-weight: 700; color: #4ade80;
+    }
+    .t-badge svg { width: 12px; height: 12px; fill: currentColor; }
+
+    /* ─── SEÇÃO 6 — CTA FINAL ─── */
+    #cta {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 60%, var(--navy-dark) 100%);
+      position: relative; overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 65% 65% at 50% 50%, rgba(219,181,123,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-box {
+      position: relative; z-index: 1;
+      max-width: 700px; margin: 0 auto;
+      background: rgba(6,15,30,0.55);
+      border: 1px solid rgba(219,181,123,0.22);
+      border-radius: 28px; padding: 64px 52px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 28px 90px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    .cta-box h2 {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      font-weight: 800; line-height: 1.2; margin-bottom: 16px;
+    }
+    .cta-box p {
+      font-size: 1rem; color: var(--muted);
+      line-height: 1.75; margin-bottom: 36px;
+    }
+    .cta-box p strong { color: var(--gold-a); }
+    .cta-perks {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 8px 24px; margin-bottom: 38px;
+    }
+    .perk {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.83rem; color: var(--muted);
+    }
+    .perk svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .perk svg path { fill: var(--gold-a); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy-deep);
+      border-top: 1px solid rgba(219,181,123,0.1);
+      padding: 34px 0; text-align: center;
+    }
+    footer p { font-size: 0.78rem; color: var(--muted); line-height: 1.8; }
+    footer a { color: var(--gold-a); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ─── BOTÃO FLUTUANTE ─── */
+    .float-wp {
+      position: fixed; bottom: 26px; right: 26px; z-index: 999;
+      display: flex; align-items: center; gap: 11px;
+      background: #25D366; color: #fff;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.86rem; font-weight: 700;
+      padding: 14px 22px; border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 6px 28px rgba(37,211,102,0.48);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: slideUp 0.5s ease 1.2s both;
+    }
+    .float-wp svg { width: 21px; height: 21px; fill: currentColor; flex-shrink: 0; }
+    .float-wp:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 12px 38px rgba(37,211,102,0.62); }
+    @keyframes slideUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ─── SVG DEFS ─── */
+    .svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .sobre-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .photo-col { max-width: 300px; margin: 0 auto; }
+      .homecare-wrap { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 18px; }
+      header { padding: 12px 0; }
+      .logo-text { font-size: 0.88rem; }
+
+      #hero { padding: 110px 0 72px; }
+      #hero h1 { font-size: clamp(1.75rem, 6vw, 2.4rem); }
+      #hero .sub { font-size: 0.97rem; margin-bottom: 32px; }
+      .hero-badge { font-size: 0.72rem; padding: 6px 16px; margin-bottom: 22px; }
+      .btn-hero { font-size: 0.98rem; padding: 16px 32px; }
+      .trust-divider { display: none; }
+      .hero-trust { gap: 10px 18px; margin-top: 32px; }
+
+      #strip { padding: 14px 0; }
+      .strip-item { font-size: 0.76rem; padding: 0 26px; }
+
+      #sobre, #oque, #quem, #depoimentos, #cta { padding: 72px 0; }
+
+      .section-title { font-size: clamp(1.45rem, 5vw, 2rem); }
+      .cases-grid { grid-template-columns: 1fr; gap: 16px; }
+      .test-grid { grid-template-columns: 1fr; gap: 18px; }
+      .cta-box { padding: 44px 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      header { padding: 10px 0; }
+      .logo-text { font-size: 0.82rem; }
+      .btn-wp { font-size: 0; width: 40px; height: 40px; padding: 0; border-radius: 50%; justify-content: center; }
+      .btn-wp svg { width: 20px; height: 20px; margin: 0; }
+
+      #hero { padding: 100px 0 64px; }
+      #hero h1 { font-size: clamp(1.6rem, 7vw, 2rem); line-height: 1.22; }
+      #hero .sub { font-size: 0.92rem; line-height: 1.7; }
+      .btn-hero { font-size: 0.96rem; padding: 16px 26px; width: 100%; justify-content: center; }
+      .hero-trust { flex-direction: column; align-items: center; gap: 8px; margin-top: 26px; }
+
+      #sobre, #oque, #quem, #depoimentos, #cta { padding: 56px 0; }
+
+      .section-title { font-size: clamp(1.35rem, 6vw, 1.75rem); }
+      .tag { font-size: 0.62rem; padding: 4px 13px; }
+
+      .photo-col { max-width: 260px; }
+      .photo-stat { width: 110px; bottom: -14px; right: -10px; padding: 14px 10px; }
+      .photo-stat .num { font-size: 1.7rem; }
+
+      .service-item { padding: 14px 16px; gap: 12px; }
+      .s-icon { width: 38px; height: 38px; border-radius: 9px; }
+      .s-icon svg { width: 18px; height: 18px; }
+
+      .case-card { padding: 22px 18px; gap: 14px; }
+      .c-icon { width: 44px; height: 44px; }
+      .test-card { padding: 22px 18px; }
+
+      .cta-box { padding: 36px 20px; border-radius: 20px; }
+      .cta-box h2 { font-size: clamp(1.35rem, 6vw, 1.8rem); }
+      .cta-box p { font-size: 0.9rem; }
+      .btn-hero.full { width: 100%; justify-content: center; }
+
+      .float-wp { bottom: 18px; right: 18px; padding: 16px; border-radius: 50%; }
+      .float-wp span { display: none; }
+    }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity .8s ease-out, transform .8s ease-out;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-stagger > * {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .7s ease-out, transform .7s ease-out;
+    }
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.12s; }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.19s; }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.26s; }
+    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.33s; }
+    .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.40s; }
+    .reveal-stagger.visible > *:nth-child(7) { transition-delay: 0.47s; }
+    .reveal-stagger.visible > *:nth-child(8) { transition-delay: 0.54s; }
+    .reveal-stagger.visible > * { opacity: 1; transform: translateY(0); }
+
+    .lottie-arrow { width: 80px; height: 80px; margin: 30px auto 0; }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 6px 28px rgba(37,211,102,0.48), 0 0 0 0 rgba(37,211,102,0.5); }
+      50%      { box-shadow: 0 6px 28px rgba(37,211,102,0.48), 0 0 0 18px rgba(37,211,102,0); }
+    }
+    .float-wp { animation: pulse-glow 2.4s ease-out infinite; }
+
+    .photo-col { position: relative; z-index: 1; }
+    .photo-box::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      background: var(--gold-grad);
+      border-radius: 24px;
+      z-index: -1;
+      opacity: 0.45;
+      filter: blur(2px);
+      animation: gold-pulse 4s ease-in-out infinite;
+    }
+    @keyframes gold-pulse {
+      0%, 100% { opacity: 0.35; filter: blur(2px); }
+      50%      { opacity: 0.65; filter: blur(4px); }
+    }
+
+    @keyframes float-stat {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+    .photo-stat { animation: float-stat 3.5s ease-in-out infinite; }
+
+    .d-icon svg, .case-icon svg { transition: transform .35s ease; }
+    .case-card:hover .case-icon svg,
+    .disease-card:hover .d-icon svg { transform: scale(1.12) rotate(-5deg); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-stagger > * { opacity: 1; transform: none; transition: none; }
+      .float-wp, .photo-box::before, .photo-stat { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<svg class="svg-defs" aria-hidden="true">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="20%" stop-color="#DBB57B"/>
+      <stop offset="50%" stop-color="#756142"/>
+      <stop offset="80%" stop-color="#DBB57B"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="container">
+    <a href="#hero" class="logo">
+      <img src="assets/logo/logo-icon-navy.png" alt="Calgarotto" class="logo-icon-img" />
+      <div class="logo-text">Dr. Renan Calgarotto</div>
+    </a>
+    <a href="https://wa.me/555596779990?text=Olá%2C%20gostaria%20de%20saber%20se%20tenho%20direito%20ao%20Home%20Care." class="btn-wp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+      <span>Fale pelo WhatsApp</span>
+    </a>
+  </div>
+</header>
+
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="5390537_Coll_wavebreak_Retirement_3840x2160.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="container">
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <div class="hero-dot"></div>
+        Consulta gratuita &nbsp;·&nbsp; Direito da Saude
+      </div>
+
+      <h1>
+        Seu plano de saude e obrigado a <span class="gold">bancar tratamento em casa</span>
+      </h1>
+
+      <p class="sub">
+        O <strong>Home Care</strong> transfere toda a estrutura hospitalar para a sua casa —
+        custeado pelo plano de saude ou pelo Estado. Seu familiar nao precisa ficar internado
+        quando pode se recuperar com mais conforto e seguranca em casa.
+      </p>
+
+      <a href="https://wa.me/555596779990?text=Olá%2C%20gostaria%20de%20saber%20se%20tenho%20direito%20ao%20Home%20Care." class="btn-hero" target="_blank" rel="noopener">
+        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+        Quero saber se tenho direito
+      </a>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-a)" stroke-width="2.2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Consulta gratuita
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-a)" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Plano ou Estado paga
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-a)" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          Resposta em 24h
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-a)" stroke-width="2.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          Atendimento RS e SC
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ STRIP ══ -->
+<section id="strip">
+  <div class="strip-inner">
+    <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Atendimento em todo o RS e SC</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Consulta 100% gratuita</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>+200 casos de sucesso</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Home Care custeado pelo plano</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Direito da Saude</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Atendimento em todo o RS e SC</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Consulta 100% gratuita</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>+200 casos de sucesso</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Home Care custeado pelo plano</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Direito da Saude</div>
+  </div>
+</section>
+
+
+<!-- ══ SEÇÃO 2 — SOBRE DR. RENAN ══ -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-wrap">
+
+      <div class="photo-col reveal">
+        <div class="photo-box">
+          <img src="assets/fotos/dr-renan-trabalhando.png" alt="Dr. Renan Calgarotto">
+        </div>
+        <div class="photo-stat">
+          <div class="num">+200</div>
+          <div class="lbl">casos resolvidos</div>
+        </div>
+      </div>
+
+      <div class="sobre-text reveal">
+        <div class="tag">Quem vai te atender</div>
+        <h2>Dr. Renan <span class="gold">Calgarotto</span></h2>
+
+        <p class="bio">
+          Advogado especialista em <strong>Direito da Saude e Previdenciario</strong>, com foco em garantir que pacientes e familias recebam o tratamento que a lei assegura. Atua com dedicacao exclusiva em casos de <strong>Home Care</strong>, obrigacoes dos planos de saude e acesso a tratamentos negados — utilizando todos os meios juridicos disponiveis para garantir o direito do cliente. Atende em todo o <strong>Rio Grande do Sul e Santa Catarina</strong>, presencialmente ou de forma remota.
+        </p>
+
+        <div class="esp-tags">
+          <span class="esp">Direito da Saude</span>
+          <span class="esp">Direito Previdenciario</span>
+          <span class="esp">Home Care</span>
+          <span class="esp">Planos de Saude</span>
+          <span class="esp">Tutela de Urgencia</span>
+        </div>
+
+        <div class="creds">
+          <div class="cred">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            OAB/RS — Inscrito regularmente
+          </div>
+          <div class="cred">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Especializacao em Direito Previdenciario
+          </div>
+          <div class="cred">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Atendimento em todo o RS e SC
+          </div>
+          <div class="cred">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Mais de 200 casos resolvidos
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SEÇÃO 3 — O QUE É HOME CARE ══ -->
+<section id="oque">
+  <div class="container">
+
+    <div class="center" style="margin-bottom:52px;">
+      <div class="tag">Entenda seu direito</div>
+      <h2 class="section-title">O que e o <span class="gold">Home Care</span></h2>
+      <p class="section-sub">Tratamento hospitalar completo realizado dentro da sua casa, com toda a equipe e equipamentos necessarios — pago pelo plano de saude ou pelo SUS.</p>
+      <div class="gold-bar"></div>
+    </div>
+
+    <div class="homecare-wrap">
+
+      <div class="homecare-explain">
+        <h3>Mais que conforto — e um direito garantido em lei</h3>
+        <p>
+          O Home Care e a <strong>internacao domiciliar</strong>: o paciente recebe em casa o mesmo nivel de atendimento que teria em um hospital, porem em um ambiente familiar, seguro e muito mais humanizado.
+        </p>
+        <p>
+          A <strong>ANS e o STJ</strong> ja pacificaram o entendimento de que os planos de saude sao obrigados a cobrir o Home Care quando houver indicacao medica — e negar esse direito e ilegal.
+        </p>
+        <div class="info-box">
+          <p>"O plano nao pode simplesmente negar o Home Care quando o medico indica. A recusa configura descumprimento contratual e pode ser revertida judicialmente em poucas horas."</p>
+        </div>
+      </div>
+
+      <div class="services-list">
+
+        <div class="service-item">
+          <div class="s-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z" stroke="url(#goldGrad)" stroke-width="2"/>
+              <path d="M16 3H8v4h8V3zM12 12v4M10 14h4" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="s-text">
+            <strong>Medico e enfermagem domiciliar</strong>
+            <span>Visitas medicas regulares e enfermagem 24h quando necessario</span>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="s-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2a5 5 0 100 10A5 5 0 0012 2zM4 22v-1a8 8 0 0116 0v1" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="s-text">
+            <strong>Fisioterapia e reabilitacao</strong>
+            <span>Sessoes de fisio, fonoaudiologia e terapia ocupacional em casa</span>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="s-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="3" stroke="url(#goldGrad)" stroke-width="2"/>
+              <path d="M12 8v8M8 12h8" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="s-text">
+            <strong>Medicamentos e insumos</strong>
+            <span>Fornecimento de medicamentos, curativos e materiais medicos</span>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="s-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 12h4l3-9 4 18 3-9h4" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="s-text">
+            <strong>Equipamentos hospitalares</strong>
+            <span>Oxigenio, concentrador, respirador, bomba de infusao e outros</span>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="s-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="s-text">
+            <strong>Nutricao enteral e parenteral</strong>
+            <span>Suporte nutricional especializado com acompanhamento de nutricionista</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SEÇÃO 4 — QUEM TEM DIREITO ══ -->
+<section id="quem">
+  <div class="container">
+
+    <div class="center reveal" style="margin-bottom:52px;">
+      <div class="tag">Casos que se encaixam</div>
+      <h2 class="section-title">Quem tem <span class="gold">direito ao Home Care</span></h2>
+      <p class="section-sub">Se o medico indicou internacao ou acompanhamento continuo, e possivel que o Home Care seja a alternativa ideal — e obrigatoria para o plano custear.</p>
+      <div class="gold-bar"></div>
+      <div class="lottie-arrow" id="lottieArrow1" aria-hidden="true"></div>
+    </div>
+
+    <div class="cases-grid reveal-stagger">
+
+      <div class="case-card featured">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM8 3h8v4H8V3zM12 12v4M10 14h4" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="c-text">
+          <h3>Pos-operatorio e recuperacao</h3>
+          <p>Pacientes em recuperacao de cirurgias que nao precisam mais de UTI mas ainda necessitam de cuidados continuos</p>
+        </div>
+      </div>
+
+      <div class="case-card featured">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 12h4l3-9 4 18 3-9h4" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="c-text">
+          <h3>Doencas cronicas graves</h3>
+          <p>Cancer, DPOC, insuficiencia cardiaca, renal cronica e outras doencas que demandam cuidados continuos</p>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="9" cy="7" r="4" stroke="url(#goldGrad)" stroke-width="2"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="c-text">
+          <h3>Idosos dependentes</h3>
+          <p>Idosos que necessitam de cuidados medicos regulares e podem se beneficiar de um ambiente familiar</p>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="c-text">
+          <h3>Sequelas de AVC e neurologicas</h3>
+          <p>Pacientes com sequelas de AVC, Parkinson avancado ou outras condicoes neurologicas que limitam a mobilidade</p>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="url(#goldGrad)" stroke-width="2"/>
+            <path d="M12 8v4l3 3" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="c-text">
+          <h3>Pacientes em cuidados paliativos</h3>
+          <p>Tratamento paliativo com qualidade de vida, no conforto do lar, acompanhado de equipe especializada</p>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="18" height="18" rx="3" stroke="url(#goldGrad)" stroke-width="2"/>
+            <path d="M12 8v8M8 12h8" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="c-text">
+          <h3>Plano negou a internacao?</h3>
+          <p>Se o plano recusou a cobertura do Home Care com indicacao medica, e possivel reverter judicialmente em poucas horas</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SEÇÃO 5 — DEPOIMENTOS ══ -->
+<section id="depoimentos">
+  <div class="container">
+
+    <div class="center reveal" style="margin-bottom:52px;">
+      <div class="tag">Resultados reais</div>
+      <h2 class="section-title">O que nossos clientes <span class="gold">dizem</span></h2>
+      <p class="section-sub">Familias que conseguiram o Home Care para seus parentes e hoje tem mais tranquilidade e qualidade de vida.</p>
+      <div class="gold-bar"></div>
+      <div class="lottie-arrow" id="lottieArrow2" aria-hidden="true"></div>
+    </div>
+
+    <div class="test-grid reveal-stagger">
+
+      <div class="test-card">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <blockquote>"Meu pai teve um AVC e o plano se recusou a cobrir o Home Care. O Dr. Renan conseguiu uma liminar em menos de 24 horas. Em dois dias meu pai ja estava em casa com toda a equipe necessaria."</blockquote>
+        <div class="test-author">
+          <div class="t-avatar">FM</div>
+          <div>
+            <div class="t-name">Felipe M.</div>
+            <div class="t-city">Porto Alegre — RS</div>
+          </div>
+        </div>
+        <div class="t-badge">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Liminar em 24 horas
+        </div>
+      </div>
+
+      <div class="test-card">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <blockquote>"Minha mae tem cancer e precisava de cuidados continuos. O plano negou o Home Care alegando que nao era necessario. Com o Dr. Renan, conseguimos garantir o direito dela em poucos dias."</blockquote>
+        <div class="test-author">
+          <div class="t-avatar">LB</div>
+          <div>
+            <div class="t-name">Lucia B.</div>
+            <div class="t-city">Caxias do Sul — RS</div>
+          </div>
+        </div>
+        <div class="t-badge">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Home Care garantido pelo plano
+        </div>
+      </div>
+
+      <div class="test-card">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <blockquote>"Meu avô tem insuficiencia cardiaca e Parkinson. Conseguimos o Home Care via SUS com a ajuda do Dr. Renan. Nao sabiamos que existia essa possibilidade. Mudou completamente a qualidade de vida dele."</blockquote>
+        <div class="test-author">
+          <div class="t-avatar">RS</div>
+          <div>
+            <div class="t-name">Roberto S.</div>
+            <div class="t-city">Florianopolis — SC</div>
+          </div>
+        </div>
+        <div class="t-badge">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Home Care via SUS garantido
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SEÇÃO 6 — CTA FINAL ══ -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-box reveal">
+      <div class="tag">Consulta 100% gratuita</div>
+      <h2>Consulta gratuita — <span class="gold">atendo em todo o RS e SC</span></h2>
+      <p>O plano nao pode negar o Home Care quando ha indicacao medica. <strong>Entre em contato agora</strong> e descubra se voce tem direito — e como garantir rapido.</p>
+
+      <div class="cta-perks">
+        <div class="perk">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Sem custo inicial
+        </div>
+        <div class="perk">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Acao rapida se necessario
+        </div>
+        <div class="perk">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          Resposta em 24h
+        </div>
+        <div class="perk">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Atendimento remoto
+        </div>
+      </div>
+
+      <a href="https://wa.me/555596779990?text=Olá%2C%20gostaria%20de%20uma%20consulta%20gratuita%20sobre%20Home%20Care." class="btn-hero full" target="_blank" rel="noopener">
+        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+        Quero minha consulta gratuita agora
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <p>
+      &copy; 2026 Dr. Renan Calgarotto &mdash; OAB/RS &nbsp;&middot;&nbsp; Direito Previdenciario e da Saude &nbsp;&middot;&nbsp; Atendimento em todo o Rio Grande do Sul e Santa Catarina &nbsp;&middot;&nbsp;
+      <a href="mailto:contato@calgarottoadv.com.br">contato@calgarottoadv.com.br</a>
+    </p>
+    <p style="margin-top:10px;font-size:0.72rem;opacity:0.45;">
+      Este site tem fins informativos. A analise de cada caso e individual e os resultados podem variar.
+    </p>
+  </div>
+</footer>
+
+
+<!-- ══ WHATSAPP FLUTUANTE ══ -->
+<a href="https://wa.me/555596779990?text=Olá%2C%20gostaria%20de%20saber%20se%20tenho%20direito%20ao%20Home%20Care." class="float-wp" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+  <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+  <span>Falar agora</span>
+</a>
+
+<!-- ══ SCROLL REVEAL ══ -->
+<script>
+  (function () {
+    var targets = document.querySelectorAll('.reveal, .reveal-stagger');
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(function (el) { el.classList.add('visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+    targets.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<!-- ══ LOTTIE ══ -->
+<script>
+  (function () {
+    if (typeof lottie === 'undefined') return;
+    var arrowAnim = {
+      "v":"5.7.4","fr":30,"ip":0,"op":60,"w":120,"h":120,"nm":"arrow","ddd":0,"assets":[],
+      "layers":[{
+        "ddd":0,"ind":1,"ty":4,"nm":"arrow","sr":1,
+        "ks":{
+          "o":{"a":1,"k":[
+            {"t":0,"s":[40],"i":{"x":[0.4],"y":[1]},"o":{"x":[0.6],"y":[0]}},
+            {"t":30,"s":[100],"i":{"x":[0.4],"y":[1]},"o":{"x":[0.6],"y":[0]}},
+            {"t":60,"s":[40]}
+          ]},
+          "r":{"a":0,"k":0},
+          "p":{"a":1,"k":[
+            {"t":0,"s":[60,40,0],"i":{"x":0.4,"y":1},"o":{"x":0.6,"y":0}},
+            {"t":30,"s":[60,70,0],"i":{"x":0.4,"y":1},"o":{"x":0.6,"y":0}},
+            {"t":60,"s":[60,40,0]}
+          ]},
+          "a":{"a":0,"k":[0,0,0]},
+          "s":{"a":0,"k":[100,100,100]}
+        },
+        "ao":0,
+        "shapes":[{
+          "ty":"gr",
+          "it":[
+            {"ind":0,"ty":"sh","ks":{"a":0,"k":{
+              "i":[[0,0],[0,0],[0,0]],
+              "o":[[0,0],[0,0],[0,0]],
+              "v":[[-25,-15],[0,15],[25,-15]],
+              "c":false
+            }}},
+            {"ty":"st","c":{"a":0,"k":[0.859,0.710,0.482,1]},"o":{"a":0,"k":100},"w":{"a":0,"k":8},"lc":2,"lj":2},
+            {"ty":"tr","p":{"a":0,"k":[0,0]},"a":{"a":0,"k":[0,0]},"s":{"a":0,"k":[100,100]},"r":{"a":0,"k":0},"o":{"a":0,"k":100}}
+          ]
+        }],
+        "ip":0,"op":60,"st":0,"bm":0
+      }]
+    };
+    ['lottieArrow1', 'lottieArrow2'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      lottie.loadAnimation({ container: el, renderer: 'svg', loop: true, autoplay: true, animationData: arrowAnim });
+    });
+  })();
+</script>
+
+</body>
+</html>
