@@ -1298,5 +1298,24 @@
   })();
 </script>
 
+<!-- Meta Pixel Event Tracking - Lead Conversion -->
+<script>
+(function() {
+  // Seleciona todos os links que levam ao WhatsApp
+  var whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+
+  // Adiciona evento de clique para cada link
+  whatsappLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      // Dispara o evento Lead ANTES de abrir o link
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead');
+      }
+    });
+  });
+})();
+</script>
+<!-- End Meta Pixel Event Tracking -->
+
 </body>
 </html>
