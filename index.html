@@ -1304,18 +1304,23 @@ document.addEventListener('DOMContentLoaded', function() {
   var whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]');
 
   whatsappLinks.forEach(function(link) {
+    link.removeAttribute('target');
     link.addEventListener('click', function(e) {
       e.preventDefault();
       var url = this.href;
 
+      console.log('Clique detectado no WhatsApp:', url);
+
       if (typeof fbq !== 'undefined') {
         fbq('track', 'Lead');
-        console.log('Meta Pixel Lead disparado! URL:', url);
+        console.log('Meta Pixel Lead disparado!');
+      } else {
+        console.warn('fbq nao encontrado!');
       }
 
       setTimeout(function() {
         window.open(url, '_blank');
-      }, 300);
+      }, 500);
     });
   });
 });
